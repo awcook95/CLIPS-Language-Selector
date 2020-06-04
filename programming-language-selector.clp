@@ -18,41 +18,6 @@
        else no))
 
 
-; Classes
-(defclass PROGRAMMER (is-a USER)
-	(role concrete)
-	(slot experience)
-    (slot career)
-	(slot has_project))
-
-(defclass PROJECT (is-a USER)
-	(role concrete)
-	(slot platform)
-    (slot scope)
-	(slot high_performance))
-
-(defclass LANGUAGE (is-a USER)
-	(role concrete)
-	(slot lname)
-	(slot career)
-	(slot type)
-	(slot body))
-
-; Class instances
-(definstances PROGRAMMER
-	(user of PROGRAMMER 
-	(has_project yes))
-)
-
-(definstances PROJECT
-	(project of PROJECT 
-	(scope frontend))
-)
-
-(definstances LANGUAGE
-	(language of PROJECT (name Python))
-)
-
 ; Query rules
 ; Various questions are asked to the user. Several questions depend on answers to previous questions
 (defrule new-programmer ""
